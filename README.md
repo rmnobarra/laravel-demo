@@ -1,3 +1,5 @@
+# php + laravel + nginx + docker
+
 # notas
 
 * App - contém o código principal do seu aplicativo.

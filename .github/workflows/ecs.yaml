@@ -81,7 +81,7 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: teste
+        ECR_REPOSITORY: ecr_teste
         IMAGE_TAG: latest
       run: |
         DATE=$(date +'%y%m%d%H%M')

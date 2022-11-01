@@ -89,7 +89,6 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
         -t $ECR_REGISTRY/$ECR_REPOSITORY:$DATE  .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$DATE%      
-
+  
     - name: Force deploy ecr
       run: aws ecs update-service --force-new-deployment --cluster salesfarm-ecs-cluster --service teste

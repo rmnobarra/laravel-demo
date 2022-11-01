@@ -30,10 +30,11 @@ COPY . /var/www
 
 COPY ./deploy/local.ini /usr/local/etc/php/local.ini
 
-COPY ./deploy/conf.d/nginx.conf /etc/nginx/nginx.conf
+COPY ./deploy/conf.d/nginx.conf /etc/nginx/conf.d/app.conf
+
+COPY ./deploy/ssl/ /var/www/ssl/
 
 RUN chmod +rwx /var/www
-
 RUN chmod -R 777 /var/www
 
 # setup npm
@@ -56,7 +57,9 @@ RUN php artisan config:clear
 
 RUN php artisan config:cache
 
-EXPOSE 80
+RUN php artisan key:generate
+
+EXPOSE 80 443
 
 RUN ["chmod", "+x", "post_deploy.sh"]
 

@@ -30,4 +30,4 @@ docker build -t laravel-demo .
 
 2. run
 
-docker run -d -p 80:80 --name laravel-demo laravel-demo
+docker run --rm -d -p 80:80 -p 443:443 --name laravel-demo laravel-demo
